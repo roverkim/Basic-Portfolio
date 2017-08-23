@@ -1,0 +1,385 @@
+// Variables
+
+$green: #4aaaa5
+$white: #ffffff
+$grey:  #cccccc
+$dark_grey: #777777
+$footerColour: #666666
+$borderColour: #dddddd
+
+// Mixin Grid
+@mixin grid ($columns, $rows, $area)
+  grid-template-columns: $columns
+  grid-template-rows: $rows
+  grid-template-areas: $area
+
+// Vertical Center Line Item Mixin
+@mixin vertical_center_line
+  justify-self: center
+  align-self: center
+
+
+// Default values
+*
+  padding: 0
+  margin: 0
+  font-family:
+  list-style: none
+  color: $dark_grey
+
+
+a
+  text-decoration: none
+  color: $dark_grey
+
+header
+  color: $green
+
+// Body
+body
+  width: 100vw
+  height: 100vh
+  display: grid
+  @include grid ($columns: 1fr 650px 270px 1fr, $rows: 1fr 4fr 4fr 1fr, $area: "header header header header" ". main_section side_section ." ". main_section . ." "footer footer footer footer")
+  background: url("../images/background-2132910_1920.jpg")
+  background-repeat: no-repeat
+  background-size: cover
+  grid-row-gap: 20px
+  grid-column-gap: 20px
+  zoom: 110%
+
+  //Header Section
+  .header
+    grid-area: header
+    position: relative
+    background-color: $white
+    font-family: 'Georgia', Times, Times New Roman, serif
+    display: grid
+    @include grid ($columns: 1fr 200px 2fr 270px 1fr, $rows: 1fr, $area: ". name . header_buttons .")
+    // Header Name
+    .name
+      grid-area: name
+      background-color: $green
+      position: absolute
+      width: 100%
+      height: 100%
+      display: grid
+      h2
+        @include vertical_center_line
+        font-size: 4vh
+        color: white
+    //  Header_buttons
+    .header_buttons
+      grid-area: header_buttons
+      text-align: center
+      display: grid
+      position: relative
+      font-size: 2vh
+      @include grid ($columns: 1fr 1fr 1fr, $rows: 1fr, $area: "link1 link2 link3")
+      // Individual Buttons
+      .link1
+        grid-area: link1
+        border-right: 1px solid $green
+        padding-right: 20px
+        @include vertical_center_line
+        a
+          &:hover
+            transition: all 0.3s
+            color: $white
+      .link2
+        grid-area: link2
+        border-right: 1px solid $green
+        padding-right: 20px
+        @include vertical_center_line
+        a
+          &:hover
+            transition: all 0.3s
+            color: $white
+      .link3
+        grid-area: link3
+        @include vertical_center_line
+        a
+          &:hover
+            transition: all 0.3s
+            color: $white
+
+
+
+  // Main Section
+  .main_section
+    grid-area: main_section
+    background-color: $white
+    display: grid
+    @include grid ($columns: 1fr 1fr, $rows: 1fr 4fr, $area: "section_header section_header" "section_body section_body")
+    //Header Row
+    .section_header
+      grid-area: section_header
+      h2
+        margin: 20px
+        padding-bottom: 20px
+        border-bottom: 1px solid $green
+    //Content Row
+    .section_body
+      grid-area: section_body
+      //Index Section Main Content
+      .index_body
+        @include grid($columns: 0.01px 1fr 1fr 0.01px, $rows: 1fr 1fr, $area: ". img first_paragraph ." ". second_paragraph second_paragraph.")
+        grid-column-gap: 20px
+        display: grid
+        .img
+          grid-area: img
+          width: 100%
+          height: auto
+        .first_paragraph
+          grid-area: first_paragraph
+        .second_paragraph
+          grid-area: second_paragraph
+      //Portfolio Section Main Contents
+      .portfolio_body
+        display: grid
+        @include grid ($columns: 0.01px 1fr 1fr 0.01px, $rows: 1fr 1fr 1fr, $area: ". img1 img2 ." ". img3 img4 ." ". img5 . ." )
+        grid-gap: 20px
+        .img
+          max-width: 100%
+          height: auto
+        .img1
+          grid-area: img1
+          position: relative
+          display: grid
+          .image_text
+            position: absolute
+            width: 100%
+            height: 30%
+            bottom: 20px
+            left: 0
+            width: 100%
+            background: $green
+            display: grid
+            p
+              @include vertical_center_line
+              color: $white
+              font-size: 3vh
+        .img2
+          grid-area: img2
+          position: relative
+          display: grid
+          .image_text
+            position: absolute
+            width: 100%
+            height: 30%
+            bottom: 20px
+            left: 0
+            width: 100%
+            background: $green
+            display: grid
+            p
+              @include vertical_center_line
+              color: $white
+              font-size: 3vh
+        .img3
+          grid-area: img3
+          position: relative
+          display: grid
+          .image_text
+            position: absolute
+            width: 100%
+            height: 30%
+            bottom: 20px
+            left: 0
+            width: 100%
+            background: $green
+            display: grid
+            p
+              @include vertical_center_line
+              color: $white
+              font-size: 3vh
+        .img4
+          grid-area: img4
+          position: relative
+          display: grid
+          .image_text
+            position: absolute
+            width: 100%
+            height: 30%
+            bottom: 20px
+            left: 0
+            width: 100%
+            background: $green
+            display: grid
+            p
+              @include vertical_center_line
+              color: $white
+              font-size: 3vh
+        .img5
+          grid-area: img5
+          position: relative
+          display: grid
+          .image_text
+            position: absolute
+            width: 100%
+            height: 30%
+            bottom: 20px
+            left: 0
+            width: 100%
+            background: $green
+            display: grid
+            p
+              @include vertical_center_line
+              color: $white
+              font-size: 3vh
+
+
+
+      .contact_body
+        margin: 0 20px 0 20px
+        .contact_form
+        input, textarea
+          width: 100%
+          padding: 12px 20px
+          margin: 10px 0
+          box-sizing: border-box
+
+
+
+
+
+
+  //Side Section
+  .side_section
+    grid-area: side_section
+    background-color: $white
+    display: grid
+    @include grid ($columns: 1fr, $rows: 2fr 3fr, $area: "side_header" "icons")
+    .side_header
+      grid-area: side_header
+      h2
+        border-bottom: 1px solid $green
+        text-align: center
+        margin: 20px
+        padding-bottom: 20px
+    .icons
+      grid-area: icons
+      display: grid
+      @include grid ($columns: 0.01px 1fr 1fr 1fr 0.01px, $rows: 1fr, $area: ". facebook git linkedin ." )
+      grid-column-gap: 10px
+      img
+        height: auto
+        width: 100%
+      .facebook
+        grid-area: facebook
+      .git
+        grid-area: git
+      .linkedin
+        grid-area: linkedin
+
+
+
+
+
+  //Sticky Footer
+  .footer
+    z-index: 1000
+    grid-area: footer
+    display: grid
+    @include grid ($columns: 1fr, $rows: 1fr 5fr, $area:"pre_footer" "within_footer")
+    color: $dark_grey
+    .pre_footer
+      grid-area: pre_footer
+      background-color: $green
+    .within_footer
+      grid-area: within_footer
+      background-color: $footerColour
+      display: grid
+      .copyright
+        @include vertical_center_line
+
+
+// Media View
+@media only screen and (max-width: 768px)
+  body
+    width: 100vw
+    height: 100vh
+    display: grid
+    @include grid ($columns: 1fr, $rows: 3fr 4fr 6fr 3fr, $area: "header" "main_section" "side_section" "footer")
+    background: url("../images/background-2132910_1920.jpg")
+    background-repeat: no-repeat
+    background-size: cover
+    zoom: 110%
+    grid-row-gap: 0px
+    //Header Section
+    .header
+      @include grid ($columns: 0.01px 1fr 0.5fr 0.01px, $rows: 1fr, $area: ". name header_buttons .")
+      grid-column-gap: 5px
+      // Header Name
+      .name
+      //  Header_buttons
+      .header_buttons
+
+        @include grid ($columns: 1fr, $rows: 1fr 1fr 1fr, $area: "link1" "link2" "link3")
+        // Individual Buttons
+        .link1
+          border-bottom: 3px solid $green
+          // border: 3px solid $green
+          margin-top: 0px
+          padding-top: 2px
+          border-right: 0px
+          padding-right: 0px
+
+          // width: 100%
+        .link2
+          border-bottom: 3px solid $green
+          // border: 5px solid $green
+          margin-top: 0px
+          padding-top: 2px
+          border-right: 0px
+          padding-right: 0px
+          // width: 100%
+        .link3
+          grid-area: link3
+          border-bottom: 3px solid $green
+          margin-top: 0px
+          padding-top: 2px
+          border-right: 0px
+          padding-right: 0px
+          // width: 100%
+
+      // Main Section
+    .main_section
+      grid-area: main_section
+      background-color: $white
+      display: grid
+      @include grid ($columns: 0.01pc 1fr 0.01fr, $rows: 0.5fr 4fr, $area: ". section_header section_header . " ". section_body section_body .")
+      //Header Row
+      .section_header
+      //Content Row
+      .section_body
+        //Index Section Main Content
+        .index_body
+          @include grid($columns: 0.01px 1fr 0.01px, $rows: 1fr 1fr 1fr, $area: ". img ." ". first_paragraph ." ". second_paragraph .")
+          grid-row-gap: 20px
+
+        //Portfolio Section Main Contents
+        .portfolio_body
+          display: grid
+          @include grid ($columns: 0.01px 1fr 1fr 0.01px, $rows: 1fr 1fr 1fr, $area: ". img1 img2 ." ". img3 img4 ." ". img5 . ." )
+          grid-gap: 20px
+          .img
+            max-width: 100%
+            height: auto
+          .img1
+            grid-area: img1
+            position: relative
+            display: grid
+            .image_text
+              position: absolute
+              width: 100%
+              height: 30%
+              bottom: 20px
+              left: 0
+              width: 100%
+              background: $green
+              display: grid
+              p
+                @include vertical_center_line
+                color: $white
+                font-size: 3vh
