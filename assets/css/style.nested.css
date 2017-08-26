@@ -259,6 +259,12 @@ body {
           width: 20%;
           background-color: #4aaaa5;
           color: white; }
+          body .main_section .section_body .contact_body input[type=submit]:hover {
+            transition: 1s;
+            transition: all 0.5s ease-in-out;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            transform: scale(1.1); }
   body .side_section {
     grid-area: side_section;
     background-color: #ffffff;
@@ -321,7 +327,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 3fr 4fr 6fr 3fr;
+    grid-template-rows: 3fr 4fr 4fr 3fr;
     grid-template-areas: "header" "main_section" "side_section" "footer";
     background: url("../images/background-2132910_1920.jpg");
     background-repeat: no-repeat;
@@ -333,6 +339,8 @@ body {
       grid-template-rows: 1fr;
       grid-template-areas: ". name header_buttons .";
       grid-column-gap: 5px; }
+      body .header .name {
+        width: 100%; }
       body .header .header_buttons {
         grid-template-columns: 0.001px 1fr 0.001px;
         grid-template-rows: 1fr 1fr 1fr;
@@ -367,7 +375,8 @@ body {
         grid-template-columns: 0.01px 1fr 0.01px;
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: ". img ." ". first_paragraph ." ". second_paragraph .";
-        grid-row-gap: 20px; }
+        grid-row-gap: 20px;
+        height: 350px; }
       body .main_section .section_body .portfolio_body {
         display: grid;
         grid-template-columns: 0.01px 1fr 1fr 0.01px;

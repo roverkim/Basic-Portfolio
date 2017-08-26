@@ -283,6 +283,12 @@ body
           width: 20%
           background-color: $green
           color: white
+          &:hover
+           transition: 1s
+           transition: all 0.5s ease-in-out
+           color: white
+           background-color: rgba(0, 0, 0, 0.6)
+           transform: scale(1.1)
 
 
   //Side Section
@@ -345,7 +351,7 @@ body
     width: 100vw
     height: 100vh
     display: grid
-    @include grid ($columns: 1fr, $rows: 3fr 4fr 6fr 3fr, $area: "header" "main_section" "side_section" "footer")
+    @include grid ($columns: 1fr, $rows: 3fr 4fr 4fr 3fr, $area: "header" "main_section" "side_section" "footer")
     background: url("../images/background-2132910_1920.jpg")
     background-repeat: no-repeat
     background-size: cover
@@ -357,6 +363,7 @@ body
       grid-column-gap: 5px
       // Header Name
       .name
+        width: 100%
       //  Header_buttons
       .header_buttons
 
@@ -396,6 +403,7 @@ body
         .index_body
           @include grid($columns: 0.01px 1fr 0.01px, $rows: 1fr 1fr 1fr, $area: ". img ." ". first_paragraph ." ". second_paragraph .")
           grid-row-gap: 20px
+          height: 350px
 
         //Portfolio Section Main Contents
         .portfolio_body
